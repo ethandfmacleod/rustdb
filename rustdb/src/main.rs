@@ -11,7 +11,8 @@ fn main() {
     let mut repl = Repl::builder()
         .add("add", commands::add_command())
         .add("insert", commands::insert_command())
-        .add("create_table", commands::create_table_command(db))
+        .add("create_table", commands::create_table_command(db.clone()))
+        .add("list", commands::list_command(db.clone()))
         .build()
         .expect("Failed to create repl");
 
